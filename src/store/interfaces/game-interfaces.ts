@@ -1,9 +1,9 @@
 import { deck, enemies } from "../../data/cards";
 
-export interface CardState {
+export interface GameState {
   deck: Card[];
-  hand: Card[];
   discard: Card[];
+  hand: Card[];
   field: Card[];
   enemies: {
     J: Card[];
@@ -11,16 +11,26 @@ export interface CardState {
     K: Card[];
   };
   enemy: Card | null;
+  stages: number;
+  round: number;
+  lastPlayed: Card[];
+  multiple: boolean;
+  players: number;
+  maxHand: number;
+  error: Error | null;
+}
+
+export interface Error {
+  message: string;
+  code: number;
 }
 
 export enum DeckType {
   deck = "deck",
-  hand = "hand",
   discard = "discard",
-  enemies = "enemies",
 }
 
-export const initialCardState: CardState = {
+export const initialGameState: GameState = {
   deck,
   hand: [],
   discard: [],
@@ -31,6 +41,13 @@ export const initialCardState: CardState = {
     K: enemies.filter((card) => card.name === "K"),
   },
   enemy: null,
+  stages: 1,
+  round: 1,
+  lastPlayed: [],
+  multiple: false,
+  players: 1,
+  maxHand: 8,
+  error: null,
 };
 
 export interface Card {

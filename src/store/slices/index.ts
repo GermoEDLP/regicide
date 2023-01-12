@@ -1,2 +1,2 @@
 export * from "./counter-slice";
-export * from "./card-slice";
+export * from "./game-slice";

@@ -1,6 +1,7 @@
 import "./App.css";
 import { MantineProvider } from "@mantine/core";
 import { Field } from "./components/Field";
+import { PlayersChoice } from './pages/PlayersChoice';
 
 export const App = () => {
   return (
