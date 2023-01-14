@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../store";
 import { DeckType, initialGameState } from "../interfaces";
 
 export const gameSlice = createSlice({
@@ -68,9 +67,20 @@ export const gameSlice = createSlice({
       );
       state.discard.unshift(card[0]);
     },
+    cleanError(state) {
+      state.error = null;
+    },
   },
 });
 
-export const { mixDeck } = gameSlice.actions;
+export const {
+  mixDeck,
+  discardCard,
+  incrementRound,
+  incrementStage,
+  mixEnemiesDeck,
+  setPlayers,
+  stoleCardsFromDeck,
+} = gameSlice.actions;
 
 export default gameSlice.reducer;

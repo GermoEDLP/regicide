@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterSlice from "./slices/counter-slice";
 import gameSlice from "./slices/game-slice";
+import routerSlice from "./slices/router-slice";
 
 export const store = configureStore({
   reducer: {
     counter: counterSlice,
     game: gameSlice,
+    router: routerSlice,
   },
 });
 
