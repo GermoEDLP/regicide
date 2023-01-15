@@ -16,6 +16,7 @@
     "@mantine/hooks": "^5.10.0",
     "@mantine/modals": "^5.10.0",
     "@reduxjs/toolkit": "^1.9.1",
+    "@tabler/icons": "^1.119.0",
     "@types/react-redux": "^7.1.25",
     "primeflex": "^3.3.0",
     "react": "^18.2.0",

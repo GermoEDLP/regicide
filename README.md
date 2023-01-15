@@ -35,6 +35,9 @@ Los archivos necesarios para la implementación se encuentra en dist folder
 - [Reactjs](https://reactjs.org/)
 - [Vitejs](https://vitejs.dev/)
 - [Typescript](https://www.typescriptlang.org/)
+- [Redux-toolkit](https://redux-toolkit.js.org/)
+- [Redux](https://redux.js.org/)
+- [TablerIcons](https://tablericons.com/)
 - Regicide
 
 Nota :

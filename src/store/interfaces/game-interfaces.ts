@@ -33,9 +33,18 @@ export enum DeckType {
 export const initialGameState: GameState = {
   deck,
   hand: [],
-  discard: [],
+  discard: [
+    {
+      name: "2",
+      value: 2,
+      suit: "clubs",
+      hp: 2,
+      attack: 2,
+      bgp: "0.9% 2.1%",
+    },
+  ],
   field: [],
-  enemies: {
+  enemies: { 
     J: enemies.filter((card) => card.name === "J"),
     Q: enemies.filter((card) => card.name === "Q"),
     K: enemies.filter((card) => card.name === "K"),
@@ -56,6 +65,7 @@ export interface Card {
   suit: Suit;
   hp: number;
   attack: number;
+  bgp: string;
 }
 
 export type Suit = "hearts" | "diamonds" | "spades" | "clubs";

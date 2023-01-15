@@ -1,12 +1,15 @@
-import { useState } from "react";
 import {
   createStyles,
   Header as MantineHeader,
   Container,
   Group,
   Burger,
+  Button,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { back } from "../store/slices";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { IconArrowNarrowLeft } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -16,48 +19,13 @@ const useStyles = createStyles((theme) => ({
     height: "100%",
   },
 
-  links: {
-    [theme.fn.smallerThan("xs")]: {
-      display: "none",
-    },
-  },
-
   burger: {
     [theme.fn.largerThan("xs")]: {
       display: "none",
     },
   },
-
-  link: {
-    display: "block",
-    lineHeight: 1,
-    padding: "8px 12px",
-    borderRadius: theme.radius.sm,
-    textDecoration: "none",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
-    fontSize: theme.fontSizes.sm,
-    fontWeight: 500,
-
-    "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
-    },
-  },
-
-  linkActive: {
-    "&, &:hover": {
-      backgroundColor: theme.fn.variant({
-        variant: "light",
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-        .color,
-    },
+  icon: {
+    marginRight: -15,
   },
 }));
 
@@ -68,12 +36,19 @@ interface HeaderProps {
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes, cx } = useStyles();
-
+  const dispatch = useAppDispatch();
+  const { historyPosition } = useAppSelector((state) => state.router);
   return (
-    <MantineHeader height={60} mb={120}>
+    <MantineHeader height={60} mb={10}>
       <Container className={classes.header}>
         <h2>Regicide</h2>
-        
+        <Button
+          hidden={historyPosition === 0}
+          size="sm"
+          variant="outline"
+          onClick={() => dispatch(back())}
+          leftIcon={<IconArrowNarrowLeft className={classes.icon} size={20}/>}
+        ></Button>
 
         <Burger
           opened={opened}
