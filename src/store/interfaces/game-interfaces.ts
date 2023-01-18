@@ -68,4 +68,4 @@ export interface Card {
   bgp: string;
 }
 
-export type Suit = "hearts" | "diamonds" | "spades" | "clubs";
+export type Suit = "hearts" | "diamonds" | "spades" | "clubs" | "joker";
