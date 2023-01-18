@@ -32,12 +32,20 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export const Card = ({ card }: { card: CardType | undefined }) => {
+export const Card = ({
+  card,
+  reverse,
+}: {
+  card?: CardType | null;
+  reverse?: boolean;
+}) => {
   const { classes } = useStyles();
   return (
     <Paper radius="md" withBorder className={classes.card}>
       {!card ? (
-        <img src={reverseImage} alt="reverso" className={classes.image} />
+        reverse ? (
+          <img src={reverseImage} alt="reverso" className={classes.image} />
+        ) : null
       ) : (
         <>
           <Container className={classes.container}>

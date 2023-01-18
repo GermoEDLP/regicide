@@ -5,11 +5,7 @@ export interface GameState {
   discard: Card[];
   hand: Card[];
   field: Card[];
-  enemies: {
-    J: Card[];
-    Q: Card[];
-    K: Card[];
-  };
+  enemies: Record<EnemyType, Card[]>;
   enemy: Card | null;
   stages: number;
   round: number;
@@ -19,6 +15,8 @@ export interface GameState {
   maxHand: number;
   error: Error | null;
 }
+
+export type EnemyType = "J" | "Q" | "K";
 
 export interface Error {
   message: string;
@@ -40,11 +38,11 @@ export const initialGameState: GameState = {
       suit: "clubs",
       hp: 2,
       attack: 2,
-      bgp: "0.9% 2.1%",
+      bgp: "0.2% 6.1%",
     },
   ],
   field: [],
-  enemies: { 
+  enemies: {
     J: enemies.filter((card) => card.name === "J"),
     Q: enemies.filter((card) => card.name === "Q"),
     K: enemies.filter((card) => card.name === "K"),
