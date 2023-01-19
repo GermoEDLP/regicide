@@ -30,14 +30,22 @@ npm run build
 
 Los archivos necesarios para la implementación se encuentra en dist folder
 
-## Creditos
+## Herramientas
+
+### Tecnologias
 
 - [Reactjs](https://reactjs.org/)
 - [Vitejs](https://vitejs.dev/)
 - [Typescript](https://www.typescriptlang.org/)
+
+### Librerias
+
 - [Redux-toolkit](https://redux-toolkit.js.org/)
 - [Redux](https://redux.js.org/)
 - [TablerIcons](https://tablericons.com/)
+- [React-Toastify](https://fkhadra.github.io/react-toastify/introduction)
+
+### Inpiración
 - Regicide
 
 Nota :

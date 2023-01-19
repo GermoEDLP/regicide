@@ -44,7 +44,7 @@ export const gameSlice = createSlice({
           ? state.maxHand - state.hand.length
           : action.payload
       );
-      state.hand = [...state.discard, ...cards];
+      state.hand = [...state.hand, ...cards];
     },
     discardCard(
       state,
