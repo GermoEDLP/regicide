@@ -2,16 +2,11 @@ import { Container, createStyles, Text, Badge, Grid } from "@mantine/core";
 import { useAppSelector } from "../store/hooks";
 import { EnemyType } from "../store/interfaces";
 import { Card } from "./Card";
+import { StylesComponent, useStyles } from './ui/styles';
 
 export const EnemiesField = () => {
   const { enemies, enemy } = useAppSelector((state) => state.game);
-  const { classes } = createStyles((theme) => ({
-    container: {
-      display: "flex",
-      alignItems: "center",
-      flexDirection: "column",
-    },
-  }))();
+  const { classes } = useStyles(StylesComponent.EnemiesDeck)
   const enemiesCantCards = (Object.keys(enemies) as EnemyType[]).reduce(
     (acc, key: EnemyType) => {
       return acc + enemies[key].length;

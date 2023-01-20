@@ -10,24 +10,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { back } from "../store/slices";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { IconArrowNarrowLeft } from "@tabler/icons";
-
-const useStyles = createStyles((theme) => ({
-  header: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: "100%",
-  },
-
-  burger: {
-    [theme.fn.largerThan("xs")]: {
-      display: "none",
-    },
-  },
-  icon: {
-    marginRight: -15,
-  },
-}));
+import { StylesComponent, useStyles } from "./ui/styles";
 
 interface HeaderProps {
   links: { link: string; label: string }[];
@@ -35,7 +18,7 @@ interface HeaderProps {
 
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles(StylesComponent.Header);
   const dispatch = useAppDispatch();
   const { historyPosition } = useAppSelector((state) => state.router);
   return (
@@ -47,7 +30,7 @@ export function Header() {
           size="sm"
           variant="outline"
           onClick={() => dispatch(back())}
-          leftIcon={<IconArrowNarrowLeft className={classes.icon} size={20}/>}
+          leftIcon={<IconArrowNarrowLeft className={classes.icon} size={20} />}
         ></Button>
 
         <Burger

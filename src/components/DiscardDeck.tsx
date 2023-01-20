@@ -1,16 +1,11 @@
 import { Badge, Container, Text, createStyles } from "@mantine/core";
 import { useAppSelector } from "../store/hooks";
 import { Card } from "./Card";
+import { StylesComponent, useStyles } from "./ui/styles";
 
 export const DiscardDeck = () => {
   const { discard } = useAppSelector((state) => state.game);
-  const { classes } = createStyles((theme) => ({
-    container: {
-      display: "flex",
-      alignItems: "center",
-      flexDirection: "column",
-    },
-  }))();
+  const { classes } = useStyles(StylesComponent.DiscardDeck);
   return (
     <>
       <Container className={classes.container}>
