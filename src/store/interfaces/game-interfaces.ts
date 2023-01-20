@@ -39,6 +39,8 @@ export const initialGameState: GameState = {
       hp: 2,
       attack: 2,
       bgp: "0.2% 6.1%",
+      select: false,
+      disabled: false,
     },
   ],
   field: [],
@@ -64,6 +66,8 @@ export interface Card {
   hp: number;
   attack: number;
   bgp: string;
+  select: boolean;
+  disabled: boolean;
 }
 
 export type Suit = "hearts" | "diamonds" | "spades" | "clubs" | "joker";

@@ -10,18 +10,21 @@ export const Hand = () => {
       alignItems: "center",
       flexDirection: "column",
     },
+    cards: {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "row",
+    }
   }))();
   return (
     <>
       <Container className={classes.container}>
         <Text size="sm">Mano</Text>
-        <Grid>
+        <Container className={classes.cards}>
           {hand.map((card, i) => (
-            <Grid.Col xs={4} key={i}>
-              <Card card={card} />
-            </Grid.Col>
+              <Card card={card} i={i+1} key={i}/>
           ))}
-        </Grid>
+        </Container>
       </Container>
     </>
   );

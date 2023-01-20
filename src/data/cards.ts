@@ -8,6 +8,8 @@ export const deck: Card[] = [
     hp: 1,
     attack: 1,
     bgp: "48.2% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "2",
@@ -16,6 +18,8 @@ export const deck: Card[] = [
     hp: 2,
     attack: 2,
     bgp: "14.2% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "3",
@@ -24,6 +28,8 @@ export const deck: Card[] = [
     hp: 3,
     attack: 3,
     bgp: "48.5% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "4",
@@ -32,6 +38,8 @@ export const deck: Card[] = [
     hp: 4,
     attack: 4,
     bgp: "75.3% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "5",
@@ -40,6 +48,8 @@ export const deck: Card[] = [
     hp: 5,
     attack: 5,
     bgp: "98.4% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "6",
@@ -48,6 +58,8 @@ export const deck: Card[] = [
     hp: 6,
     attack: 6,
     bgp: "20.8% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "7",
@@ -56,6 +68,8 @@ export const deck: Card[] = [
     hp: 7,
     attack: 7,
     bgp: "48.4% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "8",
@@ -64,6 +78,8 @@ export const deck: Card[] = [
     hp: 8,
     attack: 8,
     bgp: "75.6% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "9",
@@ -72,6 +88,8 @@ export const deck: Card[] = [
     hp: 9,
     attack: 9,
     bgp: "99.1% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "10",
@@ -80,6 +98,8 @@ export const deck: Card[] = [
     hp: 10,
     attack: 10,
     bgp: "21% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "A",
@@ -88,6 +108,8 @@ export const deck: Card[] = [
     hp: 1,
     attack: 1,
     bgp: "41.5% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "2",
@@ -96,6 +118,8 @@ export const deck: Card[] = [
     hp: 2,
     attack: 2,
     bgp: "21.2% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "3",
@@ -104,6 +128,8 @@ export const deck: Card[] = [
     hp: 3,
     attack: 3,
     bgp: "41.9% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "4",
@@ -112,6 +138,8 @@ export const deck: Card[] = [
     hp: 4,
     attack: 4,
     bgp: "68.6% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "5",
@@ -120,6 +148,8 @@ export const deck: Card[] = [
     hp: 5,
     attack: 5,
     bgp: "92.8% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "6",
@@ -128,6 +158,8 @@ export const deck: Card[] = [
     hp: 6,
     attack: 6,
     bgp: "13.6% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "7",
@@ -136,6 +168,8 @@ export const deck: Card[] = [
     hp: 7,
     attack: 7,
     bgp: "41.7% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "8",
@@ -144,6 +178,8 @@ export const deck: Card[] = [
     hp: 8,
     attack: 8,
     bgp: "68.6% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "9",
@@ -152,6 +188,8 @@ export const deck: Card[] = [
     hp: 9,
     attack: 9,
     bgp: "93.2% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "10",
@@ -160,6 +198,8 @@ export const deck: Card[] = [
     hp: 10,
     attack: 10,
     bgp: "13.7% 56.1%",
+    select: false,
+    disabled: false,
   },
 
   {
@@ -169,6 +209,8 @@ export const deck: Card[] = [
     hp: 1,
     attack: 1,
     bgp: "27.7% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "2",
@@ -177,6 +219,8 @@ export const deck: Card[] = [
     hp: 2,
     attack: 2,
     bgp: "0.2% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "3",
@@ -185,6 +229,8 @@ export const deck: Card[] = [
     hp: 3,
     attack: 3,
     bgp: "28.2% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "4",
@@ -193,6 +239,8 @@ export const deck: Card[] = [
     hp: 4,
     attack: 4,
     bgp: "55.2% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "5",
@@ -201,6 +249,8 @@ export const deck: Card[] = [
     hp: 5,
     attack: 5,
     bgp: "81.3% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "6",
@@ -209,6 +259,8 @@ export const deck: Card[] = [
     hp: 6,
     attack: 6,
     bgp: "-0.4% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "7",
@@ -217,6 +269,8 @@ export const deck: Card[] = [
     hp: 7,
     attack: 7,
     bgp: "27.8% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "8",
@@ -225,6 +279,8 @@ export const deck: Card[] = [
     hp: 8,
     attack: 8,
     bgp: "55.2% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "9",
@@ -233,6 +289,8 @@ export const deck: Card[] = [
     hp: 9,
     attack: 9,
     bgp: "81.5% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "10",
@@ -241,6 +299,8 @@ export const deck: Card[] = [
     hp: 10,
     attack: 10,
     bgp: "-0.4% 56.1%",
+    select: false,
+    disabled: false,
   },
 
   {
@@ -250,6 +310,8 @@ export const deck: Card[] = [
     hp: 1,
     attack: 1,
     bgp: "35% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "2",
@@ -258,6 +320,8 @@ export const deck: Card[] = [
     hp: 2,
     attack: 2,
     bgp: "7.2% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "3",
@@ -266,6 +330,8 @@ export const deck: Card[] = [
     hp: 3,
     attack: 3,
     bgp: "35.5% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "4",
@@ -274,6 +340,8 @@ export const deck: Card[] = [
     hp: 4,
     attack: 4,
     bgp: "62.2% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "5",
@@ -282,6 +350,8 @@ export const deck: Card[] = [
     hp: 5,
     attack: 5,
     bgp: "86.8% 6.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "6",
@@ -290,6 +360,8 @@ export const deck: Card[] = [
     hp: 6,
     attack: 6,
     bgp: "7.1% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "7",
@@ -298,6 +370,8 @@ export const deck: Card[] = [
     hp: 7,
     attack: 7,
     bgp: "35.2% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "8",
@@ -306,6 +380,8 @@ export const deck: Card[] = [
     hp: 8,
     attack: 8,
     bgp: "62% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "9",
@@ -314,6 +390,8 @@ export const deck: Card[] = [
     hp: 9,
     attack: 9,
     bgp: "87.2% 31.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "10",
@@ -322,6 +400,8 @@ export const deck: Card[] = [
     hp: 10,
     attack: 10,
     bgp: "7.2% 56.1%",
+    select: false,
+    disabled: false,
   },
 ];
 
@@ -333,6 +413,8 @@ export const enemies: Card[] = [
     hp: 20,
     attack: 10,
     bgp: "75.4% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "Q",
@@ -341,6 +423,8 @@ export const enemies: Card[] = [
     hp: 30,
     attack: 15,
     bgp: "99.5% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "K",
@@ -349,6 +433,8 @@ export const enemies: Card[] = [
     hp: 40,
     attack: 20,
     bgp: "21.2% 81.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "J",
@@ -357,6 +443,8 @@ export const enemies: Card[] = [
     hp: 20,
     attack: 10,
     bgp: "68.9% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "Q",
@@ -365,6 +453,8 @@ export const enemies: Card[] = [
     hp: 30,
     attack: 15,
     bgp: "93.2% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "K",
@@ -373,6 +463,8 @@ export const enemies: Card[] = [
     hp: 40,
     attack: 20,
     bgp: "13.6% 81.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "J",
@@ -381,6 +473,8 @@ export const enemies: Card[] = [
     hp: 20,
     attack: 10,
     bgp: "54.9% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "Q",
@@ -389,6 +483,8 @@ export const enemies: Card[] = [
     hp: 30,
     attack: 15,
     bgp: "81.7% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "K",
@@ -397,6 +493,8 @@ export const enemies: Card[] = [
     hp: 40,
     attack: 20,
     bgp: "-0.2% 81.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "J",
@@ -405,6 +503,8 @@ export const enemies: Card[] = [
     hp: 20,
     attack: 10,
     bgp: "61.9% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "Q",
@@ -413,6 +513,8 @@ export const enemies: Card[] = [
     hp: 30,
     attack: 15,
     bgp: "87.4% 56.1%",
+    select: false,
+    disabled: false,
   },
   {
     name: "K",
@@ -421,6 +523,8 @@ export const enemies: Card[] = [
     hp: 40,
     attack: 20,
     bgp: "7.4% 81.1%",
+    select: false,
+    disabled: false,
   },
 ];
 
@@ -431,4 +535,6 @@ const joker: Card = {
   hp: 50,
   attack: 25,
   bgp: "28% 81.1%",
+  select: false,
+  disabled: false,
 };

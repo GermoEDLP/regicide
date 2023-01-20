@@ -31,8 +31,9 @@ export const Toasts: Record<ToastType, ToastFunc> = {
 };
 
 export const OptionsForAll: Partial<ToastOptions> = {
-  autoClose: 5000,
+  autoClose: 3000,
   hideProgressBar: true,
+  theme: "dark",
 };
 
 export type ToastFunc = (content: string, options?: ToastOptions) => void;

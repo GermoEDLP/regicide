@@ -2,6 +2,8 @@ import { createStyles, Paper, Container } from "@mantine/core";
 import reverseImage from "../assets/img/reverso.jpg";
 import { Card as CardType } from "../store/interfaces";
 import cartas from "../assets/img/cartas4.png";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { toggleSelectCard } from "../store/slices";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -10,6 +12,8 @@ const useStyles = createStyles((theme) => ({
     width: 70,
     height: 90,
     border: "2px solid ",
+    marginLeft: -20,
+    marginTop: 10,
   },
   image: {
     width: 64,
@@ -30,18 +34,34 @@ const useStyles = createStyles((theme) => ({
     height: 85,
     borderRadius: 5,
   },
+  selected: {
+    boxShadow: "0 0 5px blue",
+    marginTop: 0,
+  },
 }));
 
 export const Card = ({
   card,
   reverse,
+  i,
 }: {
   card?: CardType | null;
   reverse?: boolean;
+  i?: number;
 }) => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
+  const dispatch = useAppDispatch();
+  const { hand } = useAppSelector((state) => state.game);
+  const toggleSelect = () => {
+    i && !card?.disabled && dispatch(toggleSelectCard(i - 1));
+  };
   return (
-    <Paper radius="md" withBorder className={classes.card}>
+    <Paper
+      radius="md"
+      withBorder
+      className={cx(classes.card, { [classes.selected]: card?.select })}
+      onClick={toggleSelect}
+    >
       {!card ? (
         reverse ? (
           <img src={reverseImage} alt="reverso" className={classes.image} />

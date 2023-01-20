@@ -70,6 +70,16 @@ export const gameSlice = createSlice({
     cleanError(state) {
       state.error = null;
     },
+    toggleSelectCard(state, action: PayloadAction<number>) {
+      state.hand[action.payload].select = !state.hand[action.payload].select;
+      if (state.hand.some((h) => h.select)) {
+        state.hand.forEach(
+          (h, i) => (h.disabled = i !== action.payload && !h.select && !h.name.includes("A"))
+        );
+      }else{
+        state.hand.forEach((h) => (h.disabled = false));
+      }
+    },
   },
 });
 
@@ -81,6 +91,7 @@ export const {
   mixEnemiesDeck,
   setPlayers,
   stoleCardsFromDeck,
+  toggleSelectCard,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;
