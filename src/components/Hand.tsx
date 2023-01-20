@@ -22,7 +22,7 @@ export const Hand = () => {
         <Text size="sm">Mano</Text>
         <Container className={classes.cards}>
           {hand.map((card, i) => (
-              <Card card={card} i={i+1} key={i}/>
+              <Card card={card} i={i+1} key={i} hand/>
           ))}
         </Container>
       </Container>

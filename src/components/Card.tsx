@@ -1,6 +1,6 @@
 import { createStyles, Paper, Container } from "@mantine/core";
 import reverseImage from "../assets/img/reverso.jpg";
-import { Card as CardType } from "../store/interfaces";
+import { Card as CardType, DeckType } from "../store/interfaces";
 import cartas from "../assets/img/cartas4.png";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { toggleSelectCard } from "../store/slices";
@@ -12,7 +12,6 @@ const useStyles = createStyles((theme) => ({
     width: 70,
     height: 90,
     border: "2px solid ",
-    marginLeft: -20,
     marginTop: 10,
   },
   image: {
@@ -38,16 +37,21 @@ const useStyles = createStyles((theme) => ({
     boxShadow: "0 0 5px blue",
     marginTop: 0,
   },
+  handCard: {
+    marginLeft: -20,
+  },
 }));
 
 export const Card = ({
   card,
   reverse,
   i,
+  hand: handDeck,
 }: {
   card?: CardType | null;
   reverse?: boolean;
   i?: number;
+  hand?: boolean;
 }) => {
   const { classes, cx } = useStyles();
   const dispatch = useAppDispatch();
@@ -59,7 +63,10 @@ export const Card = ({
     <Paper
       radius="md"
       withBorder
-      className={cx(classes.card, { [classes.selected]: card?.select })}
+      className={cx(classes.card, {
+        [classes.selected]: card?.select,
+        [classes.handCard]: handDeck,
+      })}
       onClick={toggleSelect}
     >
       {!card ? (
