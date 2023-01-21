@@ -1,4 +1,4 @@
-import { Container, Grid, Skeleton } from "@mantine/core";
+import { Container, Grid, Skeleton, Text } from "@mantine/core";
 import { Actions } from "../components/Actions";
 import { Deck } from "../components/Deck";
 import { DiscardDeck } from "../components/DiscardDeck";
@@ -11,8 +11,8 @@ const child = <Skeleton height={140} radius="md" animate={false} />;
 export const Game = () => {
   return (
     <div className="card m-2">
-      <h3>Arena de juego</h3>
       <Container my="md">
+      <Text my={35} size={"lg"}>Arena de juego</Text>
         <Grid>
           <Grid.Col xs={3}>{<DiscardDeck />}</Grid.Col>
           <Grid.Col xs={6}>{<EnemiesField />}</Grid.Col>

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { DeckType, initialGameState } from "../interfaces";
+import { mixEnemies, mix } from "../helpers";
 
 export const gameSlice = createSlice({
   name: "card",
@@ -8,14 +9,10 @@ export const gameSlice = createSlice({
   initialState: initialGameState,
   reducers: {
     mixDeck(state, action: PayloadAction<DeckType>) {
-      state[action.payload] = state[action.payload].sort(
-        () => Math.random() - 0.5
-      );
+      state[action.payload] = mix(state[action.payload]);
     },
     mixEnemiesDeck(state) {
-      state.enemies.J = state.enemies.J.sort(() => Math.random() - 0.5);
-      state.enemies.Q = state.enemies.Q.sort(() => Math.random() - 0.5);
-      state.enemies.K = state.enemies.K.sort(() => Math.random() - 0.5);
+      state.enemies = mixEnemies(state.enemies);
     },
     setPlayers(state, action: PayloadAction<number>) {
       state.players = action.payload;
@@ -23,6 +20,20 @@ export const gameSlice = createSlice({
         state.multiple = true;
       }
       state.maxHand = 9 - state.players;
+    },
+    startGame(state, action: PayloadAction<number>) {
+      state.started = true;
+      state.players = action.payload;
+      if (state.players > 1) {
+        state.multiple = true;
+      }
+      state.maxHand = 9 - state.players;
+      state.enemies = mixEnemies(state.enemies);
+      state.enemy = state.enemies.J.splice(0, 1)[0];
+      state.deck = mix(state.deck);
+    },
+    restartGame(state) {
+      state = initialGameState;
     },
     incrementRound(state) {
       state.round += 1;
@@ -74,9 +85,11 @@ export const gameSlice = createSlice({
       state.hand[action.payload].select = !state.hand[action.payload].select;
       if (state.hand.some((h) => h.select)) {
         state.hand.forEach(
-          (h, i) => (h.disabled = i !== action.payload && !h.select && !h.name.includes("A"))
+          (h, i) =>
+            (h.disabled =
+              i !== action.payload && !h.select && !h.name.includes("A"))
         );
-      }else{
+      } else {
         state.hand.forEach((h) => (h.disabled = false));
       }
     },
@@ -92,6 +105,8 @@ export const {
   setPlayers,
   stoleCardsFromDeck,
   toggleSelectCard,
+  startGame,
+  restartGame,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

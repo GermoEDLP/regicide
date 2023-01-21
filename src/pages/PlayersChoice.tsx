@@ -1,12 +1,12 @@
 import { Button, createStyles } from "@mantine/core";
 import { useAppDispatch } from "../store/hooks";
 import { PosibleRoute } from "../store/interfaces";
-import { changeTo, setPlayers } from "../store/slices";
+import { changeTo, setPlayers, startGame } from "../store/slices";
 
 export const PlayersChoice = () => {
   const dispatch = useAppDispatch();
   const select = (players: number) => {
-    dispatch(setPlayers(players));
+    dispatch(startGame(players));
     dispatch(changeTo(PosibleRoute.GAME));
   };
   return (
@@ -15,9 +15,11 @@ export const PlayersChoice = () => {
       <div className="flex justify-content-center flex-wrap card-container yellow-container">
         {[1, 2, 3, 4].map((item) => (
           <div className="flex align-items-center justify-content-center w-4rem h-4rem bg-yellow-500 font-bold text-gray-900 border-round m-5">
-            <Button variant="outline" onClick={() => select(item)}>{`${item} jugador${
-              item > 1 ? "es" : ""
-            }`}</Button>
+            <Button
+              key={item}
+              variant="outline"
+              onClick={() => select(item)}
+            >{`${item} jugador${item > 1 ? "es" : ""}`}</Button>
           </div>
         ))}
       </div>

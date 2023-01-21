@@ -87,7 +87,13 @@ const styles: Record<StylesComponent, any> = {
       flexDirection: "column",
     },
   },
-  enemiesDeck: {},
+  enemiesDeck: {
+    container: {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "column",
+    },
+  },
   field: {
     container: {
       display: "flex",

@@ -14,6 +14,7 @@ export interface GameState {
   players: number;
   maxHand: number;
   error: Error | null;
+  started: boolean;
 }
 
 export type EnemyType = "J" | "Q" | "K";
@@ -57,6 +58,7 @@ export const initialGameState: GameState = {
   players: 1,
   maxHand: 8,
   error: null,
+  started: false,
 };
 
 export interface Card {

@@ -44,6 +44,7 @@ Los archivos necesarios para la implementación se encuentra en dist folder
 - [Redux](https://redux.js.org/)
 - [TablerIcons](https://tablericons.com/)
 - [React-Toastify](https://fkhadra.github.io/react-toastify/introduction)
+- [SweetAlert2](https://sweetalert2.github.io/)
 
 ### Inpiración
 - Regicide
