@@ -14,11 +14,17 @@ import { useAppSelector } from "../store/hooks";
 export const Steps = () => {
   const { classes } = useStyles(StylesComponent.Steps);
   const { stages } = useAppSelector((state) => state.game);
+  const StepName = [
+    "Jugar carta/s",
+    "Aplicar efecto",
+    "Atacar",
+    "Recibir daño",
+  ];
   return (
     <>
       <Container className={classes.container}>
         <Text size="sm" mb={20}>
-          Pasos
+          Paso: {StepName[stages - 1]}
         </Text>
         <Container>
           <Grid>

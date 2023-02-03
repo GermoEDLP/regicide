@@ -31,6 +31,7 @@ export const gameSlice = createSlice({
       state.enemies = mixEnemies(state.enemies);
       state.enemy = state.enemies.J.splice(0, 1)[0];
       state.deck = mix(state.deck);
+      state.hand = state.deck.splice(0, state.maxHand);
     },
     restartGame(state) {
       state = initialGameState;
@@ -112,6 +113,11 @@ export const gameSlice = createSlice({
             disacled: (c.disabled = !c.select),
           }));
     },
+    attack(state) {
+      state.field = state.hand.filter((c) => c.select);
+      state.hand = state.hand.filter((c) => !c.select);
+      state.stages = 2;
+    }
   },
 });
 
@@ -126,6 +132,7 @@ export const {
   toggleSelectCard,
   startGame,
   restartGame,
+  attack
 } = gameSlice.actions;
 
 export default gameSlice.reducer;
