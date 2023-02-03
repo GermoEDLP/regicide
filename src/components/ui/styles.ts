@@ -13,6 +13,7 @@ export enum StylesComponent {
   EnemiesDeck = "enemiesDeck",
   Field = "field",
   Header = "header",
+  Steps = "steps",
 }
 const styles: Record<StylesComponent, any> = {
   card: {
@@ -111,5 +112,21 @@ const styles: Record<StylesComponent, any> = {
     icon: {
       marginRight: -15,
     },
+  },
+  steps: {
+    container: {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "column",
+    },
+    cards: {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "row",
+    },
+    icons: {
+      height: 50,
+      width: 50,
+    }
   },
 };
