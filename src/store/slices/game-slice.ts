@@ -82,16 +82,35 @@ export const gameSlice = createSlice({
       state.error = null;
     },
     toggleSelectCard(state, action: PayloadAction<number>) {
-      state.hand[action.payload].select = !state.hand[action.payload].select;
-      if (state.hand.some((h) => h.select)) {
-        state.hand.forEach(
-          (h, i) =>
-            (h.disabled =
-              i !== action.payload && !h.select && !h.name.includes("A"))
-        );
-      } else {
-        state.hand.forEach((h) => (h.disabled = false));
-      }
+      const { payload: pos } = action;
+      const toggle = () => (state.hand[pos].select = !state.hand[pos].select);
+      // si no hay ninguna seleccionada, selecciona la carta
+      if (!state.hand.some((c) => c.select)) toggle();
+      // si hay una seleccionada y es la misma, la deselecciona
+      else if (state.hand[pos].select) toggle();
+      else if (state.hand.findIndex((c) => c.select) === pos) toggle();
+      // si, tanto la seleccionada como alguna que este seleccionada, son A, las permite seleccionar hasta 2
+      else if (
+        (state.hand[pos].name === "A" ||
+          state.hand.find((c) => c.select)?.name === "A") &&
+        state.hand.filter((c) => c.select).length === 1
+      )
+        toggle();
+      // si, tanto la seleccionada como alguna que este seleccionada, son iguales, las permite seleccionar
+      // mientras la suma de la scartas sea menor o igual a 10
+      else if (state.hand[pos].name === state.hand.find((c) => c.select)?.name)
+        if (
+          (state.hand.filter((c) => c.select).length + 1) *
+            state.hand[pos].value <=
+          10
+        )
+          toggle();
+        // sino, deshabilita todas las cartas excepto las seleccionadas
+        else
+          state.hand = state.hand.map((c) => ({
+            ...c,
+            disacled: (c.disabled = !c.select),
+          }));
     },
   },
 });
