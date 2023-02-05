@@ -1,4 +1,4 @@
-import { Card } from "../store/interfaces";
+import { Card, EnemyType } from "../store/interfaces";
 
 export const deck: Card[] = [
   {
@@ -10,6 +10,7 @@ export const deck: Card[] = [
     bgp: "48.2% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "2",
@@ -20,6 +21,7 @@ export const deck: Card[] = [
     bgp: "14.2% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "3",
@@ -30,6 +32,7 @@ export const deck: Card[] = [
     bgp: "48.5% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "4",
@@ -40,6 +43,7 @@ export const deck: Card[] = [
     bgp: "75.3% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "5",
@@ -50,6 +54,7 @@ export const deck: Card[] = [
     bgp: "98.4% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "6",
@@ -60,6 +65,7 @@ export const deck: Card[] = [
     bgp: "20.8% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "7",
@@ -70,6 +76,7 @@ export const deck: Card[] = [
     bgp: "48.4% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "8",
@@ -80,6 +87,7 @@ export const deck: Card[] = [
     bgp: "75.6% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "9",
@@ -90,6 +98,7 @@ export const deck: Card[] = [
     bgp: "99.1% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "10",
@@ -100,6 +109,7 @@ export const deck: Card[] = [
     bgp: "21% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "A",
@@ -110,6 +120,7 @@ export const deck: Card[] = [
     bgp: "41.5% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "2",
@@ -120,6 +131,7 @@ export const deck: Card[] = [
     bgp: "21.2% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "3",
@@ -130,6 +142,7 @@ export const deck: Card[] = [
     bgp: "41.9% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "4",
@@ -140,6 +153,7 @@ export const deck: Card[] = [
     bgp: "68.6% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "5",
@@ -150,6 +164,7 @@ export const deck: Card[] = [
     bgp: "92.8% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "6",
@@ -160,6 +175,7 @@ export const deck: Card[] = [
     bgp: "13.6% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "7",
@@ -170,6 +186,7 @@ export const deck: Card[] = [
     bgp: "41.7% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "8",
@@ -180,6 +197,7 @@ export const deck: Card[] = [
     bgp: "68.6% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "9",
@@ -190,6 +208,7 @@ export const deck: Card[] = [
     bgp: "93.2% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "10",
@@ -200,6 +219,7 @@ export const deck: Card[] = [
     bgp: "13.7% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
 
   {
@@ -211,6 +231,7 @@ export const deck: Card[] = [
     bgp: "27.7% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "2",
@@ -221,6 +242,7 @@ export const deck: Card[] = [
     bgp: "0.2% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "3",
@@ -231,6 +253,7 @@ export const deck: Card[] = [
     bgp: "28.2% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "4",
@@ -241,6 +264,7 @@ export const deck: Card[] = [
     bgp: "55.2% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "5",
@@ -251,6 +275,7 @@ export const deck: Card[] = [
     bgp: "81.3% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "6",
@@ -261,6 +286,7 @@ export const deck: Card[] = [
     bgp: "-0.4% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "7",
@@ -271,6 +297,7 @@ export const deck: Card[] = [
     bgp: "27.8% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "8",
@@ -281,6 +308,7 @@ export const deck: Card[] = [
     bgp: "55.2% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "9",
@@ -291,6 +319,7 @@ export const deck: Card[] = [
     bgp: "81.5% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "10",
@@ -301,6 +330,7 @@ export const deck: Card[] = [
     bgp: "-0.4% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
 
   {
@@ -312,6 +342,7 @@ export const deck: Card[] = [
     bgp: "35% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "2",
@@ -322,6 +353,7 @@ export const deck: Card[] = [
     bgp: "7.2% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "3",
@@ -332,6 +364,7 @@ export const deck: Card[] = [
     bgp: "35.5% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "4",
@@ -342,6 +375,7 @@ export const deck: Card[] = [
     bgp: "62.2% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "5",
@@ -352,6 +386,7 @@ export const deck: Card[] = [
     bgp: "86.8% 6.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "6",
@@ -362,6 +397,7 @@ export const deck: Card[] = [
     bgp: "7.1% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "7",
@@ -372,6 +408,7 @@ export const deck: Card[] = [
     bgp: "35.2% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "8",
@@ -382,6 +419,7 @@ export const deck: Card[] = [
     bgp: "62% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "9",
@@ -392,6 +430,7 @@ export const deck: Card[] = [
     bgp: "87.2% 31.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "10",
@@ -402,6 +441,7 @@ export const deck: Card[] = [
     bgp: "7.2% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
 ];
 
@@ -415,6 +455,7 @@ export const enemies: Card[] = [
     bgp: "75.4% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "Q",
@@ -425,6 +466,7 @@ export const enemies: Card[] = [
     bgp: "99.5% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "K",
@@ -435,6 +477,7 @@ export const enemies: Card[] = [
     bgp: "21.2% 81.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "J",
@@ -445,6 +488,7 @@ export const enemies: Card[] = [
     bgp: "68.9% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "Q",
@@ -455,6 +499,7 @@ export const enemies: Card[] = [
     bgp: "93.2% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "K",
@@ -465,6 +510,7 @@ export const enemies: Card[] = [
     bgp: "13.6% 81.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "J",
@@ -475,6 +521,7 @@ export const enemies: Card[] = [
     bgp: "54.9% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "Q",
@@ -485,6 +532,7 @@ export const enemies: Card[] = [
     bgp: "81.7% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "K",
@@ -495,6 +543,7 @@ export const enemies: Card[] = [
     bgp: "-0.2% 81.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "J",
@@ -505,6 +554,7 @@ export const enemies: Card[] = [
     bgp: "61.9% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "Q",
@@ -515,6 +565,7 @@ export const enemies: Card[] = [
     bgp: "87.4% 56.1%",
     select: false,
     disabled: false,
+    used: false,
   },
   {
     name: "K",
@@ -525,6 +576,7 @@ export const enemies: Card[] = [
     bgp: "7.4% 81.1%",
     select: false,
     disabled: false,
+    used: false,
   },
 ];
 
@@ -537,4 +589,5 @@ const joker: Card = {
   bgp: "28% 81.1%",
   select: false,
   disabled: false,
+  used: false,
 };

@@ -1,1 +1,12 @@
+#history::-webkit-scrollbar {
+  width: 8px; /* width of the entire scrollbar */
+  background: grey;
+  border-radius: 5px;
+}
 
+#history::-webkit-scrollbar-thumb {
+  width: 10px; /* width of the entire scrollbar */
+  height: 3px;
+  border-radius: 5px;
+  background: darkgrey;
+}

@@ -1,4 +1,4 @@
-import { createStyles } from "@mantine/core";
+import { createStyles, CSSObject } from "@mantine/core";
 
 export const useStyles = (component: StylesComponent) => {
   return createStyles(() => styles[component])();
@@ -14,8 +14,9 @@ export enum StylesComponent {
   Field = "field",
   Header = "header",
   Steps = "steps",
+  History = "history",
 }
-const styles: Record<StylesComponent, any> = {
+const styles: Record<StylesComponent, Record<string, CSSObject>> = {
   card: {
     card: {
       position: "relative",
@@ -127,6 +128,20 @@ const styles: Record<StylesComponent, any> = {
     icons: {
       height: 50,
       width: 50,
-    }
+    },
+  },
+  history: {
+    dialog: {
+      height: 120,
+      overflowY: "auto",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      justifyContent: "flex-start",
+    },
+    badge: {
+      paddingTop: 7,
+      paddingBottom: 7,
+    },
   },
 };

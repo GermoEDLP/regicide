@@ -19,9 +19,9 @@ export const Card = ({
 }) => {
   const { classes, cx } = useStyles(StylesComponent.Card);
   const dispatch = useAppDispatch();
-  const { hand } = useAppSelector((state) => state.game);
+  const { stages } = useAppSelector((state) => state.game);
   const toggleSelect = () => {
-    i && !card?.disabled && dispatch(toggleSelectCard(i - 1));
+    i && !card?.disabled && dispatch(toggleSelectCard({pos: i - 1, stages}));
   };
   return (
     <Paper

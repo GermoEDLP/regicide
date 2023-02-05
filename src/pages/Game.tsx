@@ -4,10 +4,9 @@ import { Deck } from "../components/Deck";
 import { DiscardDeck } from "../components/DiscardDeck";
 import { EnemiesField } from "../components/EnemiesField";
 import { Hand } from "../components/Hand";
+import { History } from "../components/History";
 import { Steps } from "../components/Steps";
 import { Table } from "../components/Table";
-
-const child = <Skeleton height={140} radius="md" animate={false} />;
 
 export const Game = () => {
   return (
@@ -17,9 +16,10 @@ export const Game = () => {
           Arena de juego
         </Text>
         <Grid>
-          <Grid.Col xs={3}>{<DiscardDeck />}</Grid.Col>
+          <Grid.Col xs={1}>{<DiscardDeck />}</Grid.Col>
           <Grid.Col xs={6}>{<EnemiesField />}</Grid.Col>
-          <Grid.Col xs={3}>{<Deck />}</Grid.Col>
+          <Grid.Col xs={1}>{<Deck />}</Grid.Col>
+          <Grid.Col xs={4}>{<History />}</Grid.Col>
           <Grid.Col xs={12}>{<Table />}</Grid.Col>
           <Grid.Col xs={4}>{<Steps />}</Grid.Col>
           <Grid.Col xs={6}>{<Hand />}</Grid.Col>

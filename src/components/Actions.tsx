@@ -1,14 +1,20 @@
 import { Button, Container, createStyles, Text } from "@mantine/core";
 import { toast } from "react-toastify";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { attack, stoleCardsFromDeck } from "../store/slices";
+import {
+  applyEffects,
+  attack,
+  makeDamage,
+  receiveDamage,
+  stoleCardsFromDeck,
+} from "../store/slices";
 import { StylesComponent, useStyles } from "./ui/styles";
 import { Toasts } from "./ui/Toasts";
 
 export const Actions = () => {
   const dispatch = useAppDispatch();
   const { classes } = useStyles(StylesComponent.Actions);
-  const StepButtonName = ["Atacar", "Aplicar efecto", "Dañar", "Recibir daño"];
+  const StepButtonName = ["Atacar", "Efectos", "Dañar", "Defender"];
   const { stages, hand } = useAppSelector((state) => state.game);
   const robar = () => {
     dispatch(stoleCardsFromDeck(1));
@@ -21,6 +27,17 @@ export const Actions = () => {
         dispatch(attack());
         break;
 
+      case 2:
+        dispatch(applyEffects());
+        break;
+
+      case 3:
+        dispatch(makeDamage());
+        break;
+
+      case 4:
+        dispatch(receiveDamage());
+
       default:
         break;
     }
@@ -28,7 +45,7 @@ export const Actions = () => {
   return (
     <>
       <Container className={classes.container}>
-        <Text size="sm">Acciones</Text>
+        <Text size="sm" color={'dimmed'} mb={10}>Acciones</Text>
         <Button className={classes.button} onClick={() => accion(stages)}>
           {StepButtonName[stages - 1]}
         </Button>

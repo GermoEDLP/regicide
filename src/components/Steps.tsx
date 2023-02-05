@@ -23,7 +23,7 @@ export const Steps = () => {
   return (
     <>
       <Container className={classes.container}>
-        <Text size="sm" mb={20}>
+        <Text size="sm" mb={20} color={'dimmed'}>
           Paso: {StepName[stages - 1]}
         </Text>
         <Container>

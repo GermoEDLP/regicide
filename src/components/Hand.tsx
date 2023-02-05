@@ -10,7 +10,7 @@ export const Hand = () => {
   return (
     <>
       <Container className={classes.container}>
-        <Text size="sm">Mano</Text>
+        <Text size="sm" color={'dimmed'}>Mano</Text>
         <Container className={classes.cards}>
           {hand.map((card, i) => (
             <Card card={card} i={i + 1} key={i} hand />

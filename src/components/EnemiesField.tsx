@@ -1,4 +1,4 @@
-import { Container, createStyles, Text, Badge, Grid } from "@mantine/core";
+import { Container, Text, Badge, Grid } from "@mantine/core";
 import { useAppSelector } from "../store/hooks";
 import { EnemyType } from "../store/interfaces";
 import { Card } from "./Card";
@@ -14,12 +14,18 @@ export const EnemiesField = () => {
   return (
     <>
       <Container className={classes.container}>
-        <Text size="sm">Enemigos</Text>
+        <Text size="sm" color={'dimmed'}>Enemigos</Text>
         <Grid>
-          <Grid.Col xs={6}>
+          <Grid.Col xs={4}>
+            <Text align="center">Ataque</Text>
+            <Text align="center">{enemy?.tempAttack}</Text>
+            <Text align="center">Vida</Text>
+            <Text align="center">{enemy?.tempHp}</Text>
+          </Grid.Col>
+          <Grid.Col xs={4}>
             <Card card={enemy} />
           </Grid.Col>
-          <Grid.Col xs={6}>
+          <Grid.Col xs={4}>
             <Card reverse />
             <Badge size="sm" mt={5}>
               {enemiesCantCards} carta{enemiesCantCards > 1 ? "s" : null}

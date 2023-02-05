@@ -1,0 +1,22 @@
+import { IconHeart } from "@tabler/icons";
+export const Historial = [
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+  { emoji: "user", label: IconHeart },
+];

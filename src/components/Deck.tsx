@@ -9,7 +9,7 @@ export const Deck = () => {
   return (
     <>
       <Container className={classes.container}>
-        <Text size="sm">Mazo</Text>
+        <Text size="sm" color={'dimmed'}>Mazo</Text>
         <Card reverse />
         <Badge size="sm" mt={5}>
           {deck.length} carta{deck.length > 1 ? "s" : null}
