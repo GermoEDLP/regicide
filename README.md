@@ -46,7 +46,13 @@ Los archivos necesarios para la implementación se encuentra en dist folder
 - [React-Toastify](https://fkhadra.github.io/react-toastify/introduction)
 - [SweetAlert2](https://sweetalert2.github.io/)
 
+### Página
+
+La página se encuentra alojada en [Regicide Game](https://regicide-game.surge.sh/).
+Se ha utilizado el servicio de [Surge](https://surge.sh/) para el despliegue.
+
 ### Inpiración
+
 - Regicide
 
 Nota :
