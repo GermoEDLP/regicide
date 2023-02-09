@@ -12,8 +12,13 @@ import { Toasts } from "./ui/Toasts";
 export const Actions = () => {
   const dispatch = useAppDispatch();
   const { classes } = useStyles(StylesComponent.Actions);
-  const StepButtonName = ["Atacar", "Efectos", "Dañar", "Defender"];
-  const { stages, hand } = useAppSelector((state) => state.game);
+  const { stages, hand, enemy } = useAppSelector((state) => state.game);
+  const StepButtonName = [
+    "Atacar",
+    "Efectos",
+    "Dañar",
+    `${(enemy?.tempHp || 1) <= 0 ? "Finalizar" : "Defender"}`,
+  ];
   const accion = (stage: number) => {
     switch (stage) {
       case 1:
@@ -37,12 +42,22 @@ export const Actions = () => {
         break;
     }
   };
+  const getButtonText = () => {
+    if (stages === 4 && enemy && enemy.tempHp <= 0) return "Finalizar";
+    return StepButtonName[stages - 1];
+  };
   return (
     <>
       <Container className={classes.container}>
-        <Text size="sm" color={'dimmed'} mb={10}>Acciones</Text>
-        <Button className={classes.button} onClick={() => accion(stages)}>
-          {StepButtonName[stages - 1]}
+        <Text size="sm" color={"dimmed"} mb={10}>
+          Acciones
+        </Text>
+        <Button
+          className={classes.button}
+          onClick={() => accion(stages)}
+          variant="outline"
+        >
+          {getButtonText()}
         </Button>
       </Container>
     </>

@@ -80,74 +80,70 @@ export const asignEnemy = (enemies: Enemies): Enemy => {
   return { ...enemy, tempAttack: enemy.attack, tempHp: enemy.hp };
 };
 
-export const ActionIcon: Record<HA, TablerIcon> = {
-  play: IconCards,
-  attack: IconSword,
-  defend: IconShield,
-  cure: IconHeart,
-  stole: IconPlus,
-  mix: IconRotate,
-  spades: IconSpade,
-  hearts: IconHeart,
-  diamonds: IconDiamonds,
-  clubs: IconClubs,
-};
-
 export interface HI {
-  text: string;
-  action: HA;
+  template: string;
+  icon: TablerIcon;
 }
 
-export const HistoryItems: Record<HA, HI> = {
+export const HIs: Record<HA, HI> = {
   play: {
-    text: "Juega $$ cartas",
-    action: HA.play,
+    template: "Atacas con $$ cartas",
+    icon: IconCards,
   },
   attack: {
-    text: "Ataca con $$ cartas",
-    action: HA.attack,
+    template: "Haces $$ puntos de daño",
+    icon: IconSword,
   },
-  defend: {
-    text: "Defiende con $$ cartas",
-    action: HA.defend,
-  },
-  cure: {
-    text: "Cura $$ cartas",
-    action: HA.cure,
-  },
-  stole: {
-    text: "Roba $$ cartas",
-    action: HA.stole,
+  defense: {
+    template: "Descarta $$ cartas: $$ de defensa",
+    icon: IconShield,
   },
   mix: {
-    text: "Mezcla el mazo",
-    action: HA.mix,
+    template: "Mezcla el mazo",
+    icon: IconRotate,
   },
   spades: {
-    text: "Ataca con espadas",
-    action: HA.spades,
+    template: "EL enemigo pierde $$ puntos de ataque",
+    icon: IconSpade,
   },
   hearts: {
-    text: "Ataca con corazones",
-    action: HA.hearts,
+    template: "Te curas $$ cartas",
+    icon: IconHeart,
   },
   diamonds: {
-    text: "Ataca con diamantes",
-    action: HA.diamonds,
+    template: "Robas $$ cartas",
+    icon: IconDiamonds,
   },
   clubs: {
-    text: "Ataca con treboles",
-    action: HA.clubs,
+    template: "El daño total se duplica: $$",
+    icon: IconClubs,
+  },
+  b_spades: {
+    template: "Bloqueado por el enemigo",
+    icon: IconSpade,
+  },
+  b_hearts: {
+    template: "Bloqueado por el enemigo",
+    icon: IconHeart,
+  },
+  b_diamonds: {
+    template: "Bloqueado por el enemigo",
+    icon: IconDiamonds,
+  },
+  b_clubs: {
+    template: "Bloqueado por el enemigo",
+    icon: IconClubs,
   },
 };
 
-export const createHistoryItem = (action: string, icon: HA): HistorialItem => {
+export const cIHI = (
+  a: HA,
+  [...c]: (string | number)[] = []
+): HistorialItem => {
+  const { template, icon } = HIs[a];
+  const text = template.replace(/\$\$/g, () => c.shift()?.toString() || "");
   return {
-    action,
-    icon: ActionIcon[icon],
+    text,
+    icon,
   };
-};
-
-export const cIHI = (a: HA, c: number): HistorialItem => {
-  return createHistoryItem(HistoryItems[a].text.replace("$$", c.toString()), a);
 };

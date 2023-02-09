@@ -96,7 +96,7 @@ export interface AttackResume {
 }
 
 export interface HistorialItem {
-  action: string;
+  text: string;
   icon: TablerIcon;
 }
 
@@ -108,12 +108,14 @@ export interface CreateHistoryItem {
 export enum HA {
   play = "play",
   attack = "attack",
-  cure = "cure",
-  stole = "stole",
   mix = "mix",
-  defend = "defend",
+  defense = "defense",
   spades = "spades",
   hearts = "hearts",
   diamonds = "diamonds",
   clubs = "clubs",
+  b_spades = "b_spades",
+  b_hearts = "b_hearts",
+  b_diamonds = "b_diamonds",
+  b_clubs = "b_clubs",
 }

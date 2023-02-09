@@ -13,8 +13,8 @@ export const History = () => {
       </Text>
       <List spacing={-3} size="sm" className={classes.dialog} id="history">
         {history.map((item, index) => (
-          <List.Item key={index} icon={<item.icon size={15}/>}>
-            {item.action}
+          <List.Item key={index} icon={<item.icon size={15} />}>
+            {item.text}
           </List.Item>
         ))}
       </List>
