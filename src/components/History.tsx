@@ -1,6 +1,7 @@
-import { Badge, Group, Text, Container } from "@mantine/core";
+import { Badge, Group, Text, Container, List, ThemeIcon } from "@mantine/core";
 import { StylesComponent, useStyles } from "./ui/styles";
 import { useAppSelector } from "../store/hooks";
+import { IconCircleCheck, IconCircleDashed } from "@tabler/icons";
 
 export const History = () => {
   const { classes } = useStyles(StylesComponent.History);
@@ -10,13 +11,13 @@ export const History = () => {
       <Text size="sm" color={"dimmed"} align="center">
         Historial
       </Text>
-      <Group spacing={7} mt={5} className={classes.dialog} id="history">
-        {history.map((badge, i) => (
-          <Badge color={"gray"} key={i} leftSection={<badge.icon size={15}/>} className={classes.badge} >
-            {badge.action}
-          </Badge>
+      <List spacing={-3} size="sm" className={classes.dialog} id="history">
+        {history.map((item, index) => (
+          <List.Item key={index} icon={<item.icon size={15}/>}>
+            {item.action}
+          </List.Item>
         ))}
-      </Group>
+      </List>
     </Container>
   );
 };

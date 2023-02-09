@@ -6,14 +6,13 @@ import {
   mix,
   stole,
   cure,
-  calculateAttack,
   incrementStage,
   asignEnemy,
   createHistoryItem,
-  ActionIcon,
+  superCard,
 } from "../helpers";
 import { Toasts } from "../../components/ui/Toasts";
-import { CardType, HistoryAction, Suit } from "../interfaces/game-interfaces";
+import { CardType, HA, Suit } from "../interfaces/game-interfaces";
 
 export const gameSlice = createSlice({
   name: "card",
@@ -28,17 +27,13 @@ export const gameSlice = createSlice({
     },
     setPlayers(state, action: PayloadAction<number>) {
       state.players = action.payload;
-      if (state.players > 1) {
-        state.multiple = true;
-      }
+      state.multiple = state.players > 1;
       state.maxHand = 9 - state.players;
     },
     startGame(state, action: PayloadAction<number>) {
       state.started = true;
       state.players = action.payload;
-      if (state.players > 1) {
-        state.multiple = true;
-      }
+      state.multiple = state.players > 1;
       state.maxHand = 9 - state.players;
       state.enemies = mixEnemies(state.enemies);
       state.enemy = asignEnemy(state.enemies);
@@ -48,46 +43,14 @@ export const gameSlice = createSlice({
     restartGame(state) {
       state = initialGameState;
     },
-    incrementRound(state) {
-      state.round += 1;
-    },
-    stoleCardsFromDeck(state, action: PayloadAction<number>) {
-      state.hand = stole(state.deck, state.hand, state.maxHand, action.payload);
-    },
-    discardCard(
-      state,
-      action: PayloadAction<{
-        deck: DeckType;
-        cant: number;
-        index: number;
-      }>
-    ) {
-      if (state[action.payload.deck].length < action.payload.cant) {
-        state.error = {
-          message: "Not enough cards in deck",
-          code: 1,
-        };
-        return;
-      }
-      const card = state[action.payload.deck].splice(
-        action.payload.index,
-        action.payload.cant
-      );
-      state.discard.unshift(card[0]);
-    },
     cleanError(state) {
       state.error = null;
     },
-    toggleSelectCard(
-      state,
-      action: PayloadAction<{ pos: number; stages: number }>
-    ) {
-      const {
-        payload: { pos, stages },
-      } = action;
+    toggleSelectCard(state, action: PayloadAction<number>) {
+      const { payload: pos } = action;
       const toggle = () => (state.hand[pos].select = !state.hand[pos].select);
       // si no hay ninguna seleccionada, selecciona la carta
-      if (!state.hand.some((c) => c.select) || stages === 4) toggle();
+      if (!state.hand.some((c) => c.select) || state.stages === 4) toggle();
       // si hay una seleccionada y es la misma, la deselecciona
       else if (state.hand[pos].select) toggle();
       else if (state.hand.findIndex((c) => c.select) === pos) toggle();
@@ -120,49 +83,108 @@ export const gameSlice = createSlice({
       state.hand = state.hand.filter((c) => !c.select);
       state.stages = incrementStage(state.stages);
       state.history.unshift(
-        createHistoryItem(`Juega ${cards.length} cartas`, HistoryAction.play)
+        createHistoryItem(`Juega ${cards.length} cartas`, HA.play)
       );
     },
     applyEffects(state) {
       const enemy = state.enemy;
-      const attackData = calculateAttack(state.field);
+      const sCard = superCard(state.field, state.enemy);
       state.field = state.field.map((f) => ({ ...f, used: true }));
-      state.attackResume = attackData;
-      attackData.cards.forEach((c) => {
-        if (enemy)
-          attackData.suits.forEach((s) => {
-            switch (s) {
-              case Suit.spades:
-                const res = enemy.tempAttack - attackData.attack;
-                state.enemy = {
-                  ...enemy,
-                  tempAttack: res >= 0 ? res : 0,
-                };
-                Toasts.info(`Se reduce en ${c.value} el ataque del enemigo`);
-                break;
-              case Suit.diamonds:
-                const cant = state.maxHand - state.hand.length;
-                state.hand = stole(
-                  state.deck,
-                  state.hand,
-                  state.maxHand,
-                  c.value
-                );
-                Toasts.info(
-                  `Se roban ${cant <= c.value ? cant : c.value} cartas`
+      state.attackResume = sCard;
+      if (enemy)
+        sCard.suits.forEach((s) => {
+          switch (s) {
+            case Suit.spades:
+              if (enemy.suit === Suit.spades) {
+                state.history.unshift(
+                  createHistoryItem(
+                    `Habilidad bloqueada por el enemigo`,
+                    HA.spades
+                  )
                 );
                 break;
-              case Suit.hearts:
-                const heal = state.discard.length - c.value;
-                state.deck = cure(state.discard, state.deck, c.value);
-                Toasts.info(
-                  `Se curan ${heal <= c.value ? heal : c.value} puntos`
+              }
+              const res = enemy.tempAttack - sCard.attack;
+              state.enemy = {
+                ...enemy,
+                tempAttack: res >= 0 ? res : 0,
+              };
+              state.history.unshift(
+                createHistoryItem(
+                  `El enemigo pierde ${sCard.attack} puntos de ataque`,
+                  HA.spades
+                )
+              );
+              break;
+
+            case Suit.diamonds:
+              if (enemy.suit === Suit.diamonds) {
+                state.history.unshift(
+                  createHistoryItem(
+                    `Habilidad bloqueada por el enemigo`,
+                    HA.diamonds
+                  )
                 );
-              default:
                 break;
-            }
-          });
-      });
+              }
+              const cant = state.maxHand - state.hand.length;
+              state.hand = stole(
+                state.deck,
+                state.hand,
+                state.maxHand,
+                sCard.attack
+              );
+              state.history.unshift(
+                createHistoryItem(
+                  `Roba ${cant <= sCard.attack ? cant : sCard.attack} cartas`,
+                  HA.diamonds
+                )
+              );
+              break;
+
+            case Suit.hearts:
+              if (enemy.suit === Suit.hearts) {
+                state.history.unshift(
+                  createHistoryItem(
+                    `Habilidad bloqueada por el enemigo`,
+                    HA.hearts
+                  )
+                );
+                break;
+              }
+              const length = state.discard.length;
+              state.deck = cure(state.discard, state.deck, sCard.attack);
+              state.history.unshift(
+                createHistoryItem(
+                  `Se curan ${
+                    length <= sCard.attack ? length : sCard.attack
+                  } puntos`,
+                  HA.hearts
+                )
+              );
+              break;
+
+            case Suit.clubs:
+              if (enemy.suit === Suit.clubs) {
+                state.history.unshift(
+                  createHistoryItem(
+                    `Habilidad bloqueada por el enemigo`,
+                    HA.clubs
+                  )
+                );
+                break;
+              }
+              state.history.unshift(
+                createHistoryItem(
+                  `El daño se duplica: ${sCard.attack}`,
+                  HA.clubs
+                )
+              );
+
+            default:
+              break;
+          }
+        });
       state.stages = incrementStage(state.stages);
     },
     makeDamage(state) {
@@ -175,7 +197,7 @@ export const gameSlice = createSlice({
       state.history.unshift(
         createHistoryItem(
           `${state.attackResume?.attack || 0} de daño`,
-          HistoryAction.attack
+          HA.attack
         )
       );
     },
@@ -195,16 +217,16 @@ export const gameSlice = createSlice({
           state.history.unshift(
             createHistoryItem(
               `Descarta ${selected.length} cartas: ${totalDefense} de defensa`,
-              HistoryAction.defend
+              HA.defend
             )
           );
         } else {
           if (state.enemy.tempHp === 0) {
             const { tempAttack, tempHp, ...enemy } = state.enemy;
-            state.discard.unshift(enemy);
+            state.deck.unshift(enemy);
           } else if (state.enemy.tempHp < 0) {
             const { tempAttack, tempHp, ...enemy } = state.enemy;
-            state.deck.unshift(enemy);
+            state.discard.unshift(enemy);
           }
           state.discard.push(...state.field);
           state.field = [];
@@ -218,11 +240,8 @@ export const gameSlice = createSlice({
 
 export const {
   mixDeck,
-  discardCard,
-  incrementRound,
   mixEnemiesDeck,
   setPlayers,
-  stoleCardsFromDeck,
   toggleSelectCard,
   startGame,
   restartGame,

@@ -1,4 +1,5 @@
 import { Button, createStyles } from "@mantine/core";
+import { Toasts } from "../components/ui/Toasts";
 import { useAppDispatch } from "../store/hooks";
 import { PosibleRoute } from "../store/interfaces";
 import { changeTo, setPlayers, startGame } from "../store/slices";
@@ -6,6 +7,12 @@ import { changeTo, setPlayers, startGame } from "../store/slices";
 export const PlayersChoice = () => {
   const dispatch = useAppDispatch();
   const select = (players: number) => {
+    if (players !== 1) {
+      Toasts.info(
+        "Las opciones multijuador no estan disponibles en esta version"
+      );
+      return;
+    }
     dispatch(startGame(players));
     dispatch(changeTo(PosibleRoute.GAME));
   };

@@ -21,7 +21,7 @@ export const Card = ({
   const dispatch = useAppDispatch();
   const { stages } = useAppSelector((state) => state.game);
   const toggleSelect = () => {
-    i && !card?.disabled && dispatch(toggleSelectCard({pos: i - 1, stages}));
+    i && !card?.disabled && dispatch(toggleSelectCard(i - 1));
   };
   return (
     <Paper

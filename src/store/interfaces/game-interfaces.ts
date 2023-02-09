@@ -91,7 +91,6 @@ export enum Suit {
 }
 
 export interface AttackResume {
-  cards: Card[];
   attack: number;
   suits: Partial<Suit[]>;
 }
@@ -103,14 +102,18 @@ export interface HistorialItem {
 
 export interface CreateHistoryItem {
   text: string;
-  action: HistoryAction;
+  action: HA;
 }
 
-export enum HistoryAction {
+export enum HA {
   play = "play",
   attack = "attack",
   cure = "cure",
   stole = "stole",
   mix = "mix",
   defend = "defend",
+  spades = "spades",
+  hearts = "hearts",
+  diamonds = "diamonds",
+  clubs = "clubs",
 }
