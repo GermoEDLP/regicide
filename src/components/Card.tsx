@@ -1,25 +1,28 @@
 import { createStyles, Paper, Container } from "@mantine/core";
-import reverseImage from "../assets/img/reverso.jpg";
+import reverseImage from "../assets/images/cards_0.png";
 import { Card as CardType, DeckType } from "../store/interfaces";
-import cartas from "../assets/img/cartas4.png";
+import cartas from "../assets/images/cards_0.png";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { toggleSelectCard } from "../store/slices";
 import { StylesComponent, useStyles } from "./ui/styles";
 
 export const Card = ({
   card,
+  cant,
   reverse,
+  giant,
   i,
   hand: handDeck,
 }: {
   card?: CardType | null;
+  cant?: string;
   reverse?: boolean;
+  giant?: boolean;
   i?: number;
   hand?: boolean;
 }) => {
   const { classes, cx } = useStyles(StylesComponent.Card);
   const dispatch = useAppDispatch();
-  const { stages } = useAppSelector((state) => state.game);
   const toggleSelect = () => {
     i && !card?.disabled && dispatch(toggleSelectCard(i - 1));
   };
@@ -35,19 +38,30 @@ export const Card = ({
     >
       {!card ? (
         reverse ? (
-          <img src={reverseImage} alt="reverso" className={classes.image} />
-        ) : null
-      ) : (
-        <>
-          <Container className={classes.container}>
+          <>
             <div
-              className={classes.cards}
               style={{
-                backgroundPosition: card.bgp,
                 backgroundImage: `url(${cartas})`,
               }}
+              className={classes.reverse}
             ></div>
-          </Container>
+            {cant && <div className={classes.cant}>{cant}</div>}
+          </>
+        ) : (
+          <>
+            <div className={classes.empty}></div>
+            {cant && <div className={classes.cant}>{cant}</div>}
+          </>
+        )
+      ) : (
+        <>
+          <div
+            className={giant ? classes.giant : classes.cards}
+            style={{
+              backgroundPosition: card.bgp,
+              backgroundImage: `url(${cartas})`,
+            }}
+          ></div>
         </>
       )}
     </Paper>

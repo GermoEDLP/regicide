@@ -10,7 +10,7 @@ export const Table = () => {
   return (
     <>
       <Container className={classes.container}>
-        <Container className={classes.cards} mb={field.length === 0 ? 90 : 0}>
+        <Container className={classes.cards} mb={field.length === 0 ? 150 : 0}>
           {field.map((card, i) => (
             <Card card={card} i={i + 1} key={i} hand />
           ))}

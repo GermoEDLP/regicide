@@ -1,6 +1,13 @@
 import { deck, enemies } from "../../data/cards";
 import { TablerIcon } from "@tabler/icons";
 
+export enum StatType {
+  attack = "attack",
+  hp = "hp",
+  tempAttack = "tempAttack",
+  tempHp = "tempHp",
+}
+
 export interface GameState {
   deck: Card[];
   discard: Card[];

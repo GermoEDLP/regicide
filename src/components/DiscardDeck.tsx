@@ -9,11 +9,10 @@ export const DiscardDeck = () => {
   return (
     <>
       <Container className={classes.container}>
-        <Text size="sm" color={'dimmed'}>Descarte</Text>
-        <Card card={discard.at(0)} />
-        <Badge size="sm" mt={5}>
-          {discard.length} carta{discard.length > 1 ? "s" : null}
-        </Badge>
+        <Text size="sm" color={"dark"} fw={500} className={classes.text}>
+          Descarte
+        </Text>
+        <Card card={discard.at(0)} cant={discard.length.toString()} />
       </Container>
     </>
   );

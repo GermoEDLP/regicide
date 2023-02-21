@@ -7,8 +7,8 @@ export const History = () => {
   const { classes } = useStyles(StylesComponent.History);
   const { history } = useAppSelector((state) => state.game);
   return (
-    <Container className={classes.container}>
-      <Text size="sm" color={"dimmed"} align="center">
+    <Container className={classes.container} h={310}>
+      <Text size="sm" color={"dark"} fw={500} align="center">
         Historial
       </Text>
       <List spacing={-3} size="sm" className={classes.dialog} id="history">

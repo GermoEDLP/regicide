@@ -9,11 +9,10 @@ export const Deck = () => {
   return (
     <>
       <Container className={classes.container}>
-        <Text size="sm" color={'dimmed'}>Mazo</Text>
-        <Card reverse />
-        <Badge size="sm" mt={5}>
-          {deck.length} carta{deck.length > 1 ? "s" : null}
-        </Badge>
+        <Text size="sm" color={"dark"} fw={500}className={classes.text}>
+          Mazo
+        </Text>
+        <Card reverse cant={deck.length.toString()} />
       </Container>
     </>
   );

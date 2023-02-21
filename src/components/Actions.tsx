@@ -49,14 +49,10 @@ export const Actions = () => {
   return (
     <>
       <Container className={classes.container}>
-        <Text size="sm" color={"dimmed"} mb={10}>
+        <Text size="sm" color={"dark"} fw={500} mb={10}>
           Acciones
         </Text>
-        <Button
-          className={classes.button}
-          onClick={() => accion(stages)}
-          variant="outline"
-        >
+        <Button className={classes.button} onClick={() => accion(stages)}>
           {getButtonText()}
         </Button>
       </Container>

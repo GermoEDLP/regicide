@@ -15,7 +15,7 @@ export const App = () => {
       withNormalizeCSS
       theme={{ colorScheme: "dark" }}
     >
-      <Header />
+      {/* <Header /> */}
       {location.pathname === PosibleRoute.CHOICE && <PlayersChoice />}
       {location.pathname === PosibleRoute.GAME && <Game />}
     </MantineProvider>
