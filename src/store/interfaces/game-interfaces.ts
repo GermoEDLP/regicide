@@ -75,7 +75,7 @@ export const initialGameState: GameState = {
 export interface Card {
   name: string;
   value: number;
-  suit: Suit;
+  suit: string | Suit;
   hp: number;
   attack: number;
   bgp: string;
@@ -99,7 +99,7 @@ export enum Suit {
 
 export interface AttackResume {
   attack: number;
-  suits: Partial<Suit[]>;
+  suits: Partial<Suit[] | string[]>;
 }
 
 export interface HistorialItem {

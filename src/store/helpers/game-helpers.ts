@@ -53,7 +53,7 @@ export const cure = (discard: Card[], deck: Card[], cant: number) => {
 
 export const superCard = (field: Card[], enemy: Enemy | null): AttackResume => {
   const cards = field.filter((c) => !c.used);
-  const suits: Partial<Suit[]> = [];
+  const suits: Partial<string[]> = [];
   const attackSum = cards.reduce((acc, c) => {
     if (!suits.includes(c.suit)) suits.push(c.suit);
     return acc + c.value;
